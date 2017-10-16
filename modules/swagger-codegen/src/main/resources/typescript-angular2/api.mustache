@@ -18,6 +18,8 @@ import { {{classname}}Interface }                            from './{{classname
 
 {{#operations}}
 
+import { AuthHttp }                                          from 'angular2-jwt';
+
 {{#description}}
 /**
  * {{&description}}
@@ -35,7 +37,7 @@ export class {{classname}} {
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
-    constructor(protected http: Http, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
+    constructor(protected http: AuthHttp, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
         if (basePath) {
             this.basePath = basePath;
         }
